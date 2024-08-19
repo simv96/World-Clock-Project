@@ -1,6 +1,12 @@
 body {
-  background-color: #f9f7fe;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  background: linear-gradient(
+    89.9deg,
+    rgb(208, 246, 255) 0.1%,
+    rgb(255, 237, 237) 47.9%,
+    rgb(255, 255, 231) 100.2%
+  );
 }
 
 h1 {
@@ -25,7 +31,7 @@ footer {
 }
 a {
   text-decoration: none;
-  color: #7256b3;
+  color: #407088;
   font-weight: bold;
 }
 select {
@@ -36,6 +42,7 @@ select {
   border-radius: 5px;
   border-color: #d4d3d9;
   display: block;
+  background-color: #fffee8;
 }
 small {
   font-size: 15px;
