@@ -1,10 +1,12 @@
+let selectedCityTimeZone = "Europe/Rome"; // default timezone
+
 function updateTime() {
   let cityOneElement = document.querySelector("#city-one");
 
   if (cityOneElement) {
     let cityOneDateElement = cityOneElement.querySelector(".date");
     let cityOneTimeElement = cityOneElement.querySelector(".time");
-    let cityOneTime = moment().tz("Europe/Rome");
+    let cityOneTime = moment().tz(selectedCityTimeZone);
     cityOneDateElement.innerHTML = cityOneTime.format("MMMM Do YYYY");
     cityOneTimeElement.innerHTML = cityOneTime.format(
       "h:mm:ss [<small>] A [</small>]"
@@ -32,11 +34,13 @@ function updateTime() {
     );
   }
 }
+
 function updateCity(event) {
   let cityTimeZone = event.target.value;
   if (cityTimeZone === "current") {
     cityTimeZone = moment.tz.guess();
   }
+  selectedCityTimeZone = cityTimeZone; // Update the global variable
   let cityName = cityTimeZone.replace("_", " ").split("/")[1];
   let citySelectTime = moment().tz(cityTimeZone);
   let cityInfoElement = document.querySelector("#allCitiesInfo");
@@ -49,8 +53,11 @@ function updateCity(event) {
             "h:mm:ss"
           )} <small>${citySelectTime.format("A")}</small></div>
         </div>`;
+  updateTime(); // Immediately update the time for the selected city
 }
+
 let citiesSelectElement = document.querySelector(".list");
 citiesSelectElement.addEventListener("change", updateCity);
+
 updateTime();
 setInterval(updateTime, 1000);
