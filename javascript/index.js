@@ -17,7 +17,7 @@ function updateTime() {
   if (cityTwoElement) {
     let cityTwoDateElement = cityTwoElement.querySelector(".date");
     let cityTwoTimeElement = cityTwoElement.querySelector(".time");
-    let cityTwoTime = moment().tz("Europe/Dublin");
+    let cityTwoTime = moment().tz("Australia/Melbourne");
     cityTwoDateElement.innerHTML = cityTwoTime.format("MMMM Do YYYY");
     cityTwoTimeElement.innerHTML = cityTwoTime.format(
       "h:mm:ss [<small>] A [</small>]"
